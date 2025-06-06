@@ -1,0 +1,17 @@
+import React from "react";
+import "./Meaning.css";
+
+function Meaning(props) {
+  console.log(props.meaning);
+  return (
+    <div className="Meaning">
+      <h4>{props.meaning.partOfSpeech}</h4>
+      <p>{props.meaning.definition}</p>
+      <p>
+        <em>{props.meaning.example}</em>
+      </p>
+    </div>
+  );
+}
+
+export default Meaning;

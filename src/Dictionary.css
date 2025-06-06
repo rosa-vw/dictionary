@@ -1,8 +1,10 @@
 .Dictionary form {
   text-align: center;
+  padding: 20px 0;
 }
 
 .Dictionary input {
   border-radius: 5px;
   border-style: none;
+  padding: 10px 20px;
 }
