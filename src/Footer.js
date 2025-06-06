@@ -6,14 +6,14 @@ function Footer() {
     <div className="Footer">
       <p>
         This project was coded by{" "}
-        <a href="https://github.com/rosa-vw" target="_blank" rel="noopener">
+        <a href="https://github.com/rosa-vw" target="_blank" rel="noreferrer">
           Rosavw
         </a>
         , is open-sourced on{" "}
         <a
           href="https://github.com/rosa-vw/dictionary"
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
         >
           GitHub
         </a>{" "}
@@ -21,7 +21,7 @@ function Footer() {
         <a
           href="https://dictionary-rosavw.netlify.app/"
           target="_blank"
-          rel="noopener"
+          rel="noreferrer"
         >
           Netlify
         </a>{" "}
