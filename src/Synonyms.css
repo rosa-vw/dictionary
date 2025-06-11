@@ -1,0 +1,8 @@
+.Synonyms {
+  display: flex;
+  justify-content: left;
+}
+
+.Synonyms ul {
+  list-style: none;
+}
