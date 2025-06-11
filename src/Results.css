@@ -2,4 +2,19 @@
   padding: 10px;
   color: rgb(51, 160, 179);
   text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px 25px;
+  box-shadow: 0px 5px 5px rgba(23, 74, 83, 0.15);
+}
+
+.Results .Meanings {
+  display: grid;
+  grid-template-columns: fit-content(50%) fit-content(50%);
+  margin: 20px 25px;
+  gap: 20px;
+}
+
+.Results h2 {
+  font-size: 48px;
 }

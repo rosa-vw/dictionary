@@ -1,8 +1,11 @@
-.Synonyms {
-  display: flex;
-  justify-content: left;
-}
-
 .Synonyms ul {
   list-style: none;
+  padding: 0;
+}
+
+.Synonyms li {
+  display: inline-block;
+  padding-right: 10px;
+  font-weight: 600;
+  font-size: 14px;
 }

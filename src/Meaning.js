@@ -10,7 +10,6 @@ function Meaning(props) {
       <h4>{props.meaning.partOfSpeech}</h4>
       <p>{props.meaning.definition}</p>
       <Example example={props.meaning.example} />
-      <br />
       <Synonyms synonyms={props.meaning.synonyms} />
     </div>
   );

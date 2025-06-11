@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1>Dictionary</h1>
-      <Dictionary />
+      <Dictionary default="ocean" />
     </div>
   );
 }
