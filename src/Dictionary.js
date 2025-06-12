@@ -9,6 +9,7 @@ function Dictionary(props) {
   let [information, setInformation] = useState(null);
   let [loaded, setLoaded] = useState(false);
   let [photos, setPhotos] = useState(null);
+  let [audio, setAudio] = useState(null);
 
   function handleResponse(response) {
     setInformation(response.data);
@@ -18,10 +19,17 @@ function Dictionary(props) {
     setPhotos(response.data.photos);
   }
 
+  function handleAudio(response) {
+    setAudio(response.data);
+  }
+
   function search() {
     let apiKey = `f8eo81d182023fdd4fb805t37b75950a`;
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
+
+    let audioUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+    axios.get(audioUrl).then(handleAudio);
 
     let pexelsKey = `e7fAJouPDoVBu9E1nBsxzWT5GxtgfRywB0Ou6ASX0QHiUpVAvhCQeCVd`;
     let pexelsUrl = `https://api.pexels.com/v1/search?query=${word}&per_page=4`;
@@ -54,7 +62,7 @@ function Dictionary(props) {
             placeholder="Search for a word..."
           />
         </form>
-        <Results result={information} />
+        <Results result={information} audio={audio} />
         <Photos photos={photos} />
       </div>
     );
