@@ -28,7 +28,7 @@ function Dictionary(props) {
   }
 
   function handleError() {
-    setError();
+    setError("error");
     setInformation(null);
   }
 
