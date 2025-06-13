@@ -16,7 +16,7 @@ function Footer() {
           rel="noreferrer"
         >
           GitHub
-        </a>{" "}
+        </a>
         , hosted on{" "}
         <a
           href="https://dictionary-rosavw.netlify.app/"
