@@ -10,7 +10,6 @@ function Dictionary(props) {
   let [loaded, setLoaded] = useState(false);
   let [photos, setPhotos] = useState(null);
   let [audio, setAudio] = useState(null);
-  let [error, setError] = useState(null);
 
   function handleResponse(response) {
     if (response.data.status === "not_found") {
@@ -28,17 +27,17 @@ function Dictionary(props) {
   }
 
   function handleError() {
-    setError("Sorry try again blah blah");
+    alert("Sorry, we can't find that word. Please try something else");
+    setWord("error");
     setInformation(null);
     setPhotos(null);
     setAudio(null);
   }
 
   function search() {
-    setError(null);
     let apiKey = `f8eo81d182023fdd4fb805t37b75950a`;
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${apiKey}`;
-    axios.get(apiUrl).then(handleResponse);
+    axios.get(apiUrl).then(handleResponse).catch(handleError);
 
     let audioUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     axios.get(audioUrl).then(handleAudio).catch(handleError);
@@ -75,7 +74,7 @@ function Dictionary(props) {
             placeholder="Search for a word..."
           />
         </form>
-        {error && <p>{error}</p>}
+
         <Results result={information} audio={audio} />
         <Photos photos={photos} />
       </div>
