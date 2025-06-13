@@ -10,8 +10,12 @@ function Dictionary(props) {
   let [loaded, setLoaded] = useState(false);
   let [photos, setPhotos] = useState(null);
   let [audio, setAudio] = useState(null);
+  let [error, setError] = useState(null);
 
   function handleResponse(response) {
+    if (response.data.status === "not_found") {
+      return handleError();
+    }
     setInformation(response.data);
   }
 
@@ -23,19 +27,28 @@ function Dictionary(props) {
     setAudio(response.data);
   }
 
+  function handleError() {
+    setError("Sorry try again blah blah");
+    setInformation(null);
+    setPhotos(null);
+    setAudio(null);
+  }
+
   function search() {
+    setError(null);
     let apiKey = `f8eo81d182023fdd4fb805t37b75950a`;
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
 
     let audioUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
-    axios.get(audioUrl).then(handleAudio);
+    axios.get(audioUrl).then(handleAudio).catch(handleError);
 
     let pexelsKey = `e7fAJouPDoVBu9E1nBsxzWT5GxtgfRywB0Ou6ASX0QHiUpVAvhCQeCVd`;
     let pexelsUrl = `https://api.pexels.com/v1/search?query=${word}&per_page=4`;
     axios
       .get(pexelsUrl, { headers: { Authorization: `${pexelsKey}` } })
-      .then(handlePexels);
+      .then(handlePexels)
+      .catch(handleError);
   }
 
   function handleSubmit(event) {
@@ -62,6 +75,7 @@ function Dictionary(props) {
             placeholder="Search for a word..."
           />
         </form>
+        {error && <p>{error}</p>}
         <Results result={information} audio={audio} />
         <Photos photos={photos} />
       </div>

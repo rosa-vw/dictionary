@@ -1,11 +1,7 @@
-.Audio {
-  padding: 20px 0;
-}
-
 .Audio .Listen {
   display: flex;
   justify-content: center;
-  padding: 10px 0 0 0;
+  padding: 10px 0 15px 0;
 }
 
 .Audio a {
