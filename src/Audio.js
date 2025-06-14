@@ -3,7 +3,7 @@ import "./Audio.css";
 import headphones from "./headphones.png";
 
 function Audio(props) {
-  if (props.audio[0].phonetics) {
+  if (props.audio && props.audio[0].phonetics) {
     return (
       <div className="Audio">
         {props.audio[0].phonetics.map(function (audio, index) {
